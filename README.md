@@ -85,7 +85,7 @@ Privacidad: Todo el procesamiento es local, excepto el análisis IA.
 
 5. Instrucciones de Instalación
 1️⃣ Clonar el repositorio
-git clone https://github.com/tu-usuario/retrolens-ai.git
+git clone https://github.com/orlandoVergara/editor-ia.git
 cd retrolens-ai
 
 2️⃣ Crear entorno virtual
