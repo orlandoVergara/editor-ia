@@ -1,44 +1,52 @@
-#1. Descripción del Problema y Caso de Uso
-El Desafío
-La digitalización de archivos familiares presenta un problema común: el paso del tiempo degrada las fotografías físicas (pérdida de contraste, colores apagados, "neblina" blanca), y los escáneres caseros a menudo no logran capturar la vivacidad original.
+# RetroLens AI – Restauración Inteligente de Fotos Familiares
 
-Las soluciones existentes obligan al usuario a elegir entre:
+## 1. Descripción del Problema y Caso de Uso
 
-Software profesional (Photoshop): Curvas de aprendizaje empinadas, costos altos y cientos de herramientas innecesarias.
+### 🔍 El Desafío  
+La digitalización de fotos familiares presenta un problema recurrente:  
+con el paso del tiempo, las imágenes físicas se degradan —pierden contraste, se vuelven opacas o aparecen velos blanquecinos— y los escáneres caseros no logran rescatar la esencia original.
 
-Filtros automáticos de celular: Resultados "caja negra" que a menudo alteran los rostros o la esencia de la foto original.
+Las soluciones actuales obligan al usuario a elegir entre:
 
-La Solución
-Esta aplicación ofrece un término medio perfecto: herramientas de corrección visual directas (brillo, contraste, ecualización) potenciadas por un "Asistente de IA". El usuario edita, y la IA confirma si la calidad técnica ha mejorado objetivamente, eliminando la incertidumbre del proceso.
+- **Software profesional (Photoshop):** potente pero costoso, complejo y con cientos de herramientas innecesarias.  
+- **Filtros automáticos de celular:** resultados poco predecibles; alteran rostros o colores originales.
 
-2. Definición del User Persona
-Nombre: Laura Perfil: La "Digitalizadora del Archivo Familiar" Edad: 45-55 años | Ocupación: Fotógrafa amateur
+### ✅ La Solución  
+RetroLens AI ofrece un punto medio perfecto:  
+herramientas de mejora visual simples (brillo, contraste, nitidez, ecualización) junto con un **Asistente de IA** que analiza objetivamente si la calidad mejoró o empeoró.
 
-Contexto Tecnológico: Laura utiliza su computadora regularmente para tareas cotidianas y aplicaciones básicas. No tiene experiencia técnica en Inteligencia Artificial ni paciencia para aprender software de edición complejo.
+El usuario edita, la IA asesora. Sin incertidumbre. Sin complejidad.
 
-El Problema: Posee cientos de fotos familiares de los años 70 y 80 que ha escaneado, pero el resultado digital es decepcionante: las imágenes se ven opacas, con poco contraste y pixeladas. Quiere compartirlas en redes sociales con su familia, pero siente que la calidad actual "se ve mal".
+---
 
-Frustraciones Principales:
+## 2. User Persona
 
-Complejidad: Las herramientas profesionales tienen demasiados botones o requieren suscripciones caras.
+**👤 Nombre:** Laura  
+**Rol:** “Digitalizadora del Archivo Familiar”  
+**Edad:** 45–55  
+**Ocupación:** Fotógrafa amateur
 
-Incertidumbre: Al editar, no sabe si el resultado que obtiene es "lo mejor posible" o si está dañando la foto.
+### Contexto Tecnológico  
+- Usa la PC para tareas cotidianas.  
+- No conoce IA ni quiere aprender software complejo.  
 
-Tiempo: El proceso de probar apps en el celular foto por foto es lento e inconsistente.
+### Sus Problemas  
+- Tiene cientos de fotos escaneadas de los años 70–80 con mala calidad.  
+- No sabe si sus ajustes mejoran realmente la imagen.  
+- Se frustra probando aplicaciones que no son consistentes.
 
-Objetivos:
+### Objetivos  
+- Mejorar un lote grande de fotos durante su fin de semana.  
+- Ver rápidamente si vale la pena mejorar cada foto.  
+- Usar una herramienta simple y entendible en pocas horas.
 
-Mejorar un lote de 200+ fotos de manera eficiente durante sus fines de semana en casa.
+---
 
-Ver una diferencia clara y rápida (entender si vale la pena el esfuerzo).
+## 3. Arquitectura del Sistema
 
-Un flujo de trabajo simple que pueda dominar en una o dos tardes.
+La aplicación funciona bajo una arquitectura monolítica ligera usando **Streamlit** tanto para UI como para lógica.
 
-3. Arquitectura del Sistema
-El sistema utiliza una arquitectura monolítica ligera, donde Streamlit gestiona tanto la interfaz de usuario como la lógica de procesamiento en Python.
-
-Fragmento de código
-
+```mermaid
 graph TD
     User((Usuario: Laura)) -->|Carga Foto Escaneada| UI[Frontend Streamlit]
     
@@ -58,85 +66,90 @@ graph TD
     Morph --> Render
     Render -->|Descarga PNG| User
 4. Stack Tecnológico
-Framework: Streamlit (Desarrollo rápido de UI/UX).
+Frontend & Backend: Streamlit
 
-Procesamiento de Imagen: Pillow (PIL) (Librería estándar de Python para manipulación de rasters).
+Procesamiento de Imágenes: Pillow (PIL)
 
-Se utiliza para todas las transformaciones de píxeles, asegurando velocidad y privacidad (el procesamiento de imagen es local).
+IA Multimodal: Google Gemini 1.5 Flash
 
-Inteligencia Artificial: Google Generative AI (Gemini 1.5 Flash).
+Entorno: Python 3.11
 
-Modelo multimodal utilizado para "Visión por Computadora" semántica. Entiende el contenido de la foto y juzga la calidad.
-
-Entorno: Python 3.11 gestionado con pip.
+Privacidad: Todo el procesamiento visual ocurre localmente. Solo el análisis se envía a la nube.
 
 5. Instrucciones de Instalación
-Clonar el repositorio:
-
-Bash
-
+1️⃣ Clonar el repositorio
+bash
+Copiar código
 git clone https://github.com/tu-usuario/retrolens-ai.git
 cd retrolens-ai
-Configurar entorno virtual:
-
-Bash
-
+2️⃣ Crear entorno virtual
+bash
+Copiar código
 python -m venv .venv
-.\.venv\Scripts\Activate  # En Windows
-# source .venv/bin/activate  # En Mac/Linux
-Instalar dependencias:
-
-Bash
-
+.\.venv\Scripts\activate  # Windows
+# source .venv/bin/activate  # Mac / Linux
+3️⃣ Instalar dependencias
+bash
+Copiar código
 pip install -r requirements.txt
-Configurar API Key (Esencial):
+4️⃣ Configurar API Key
+Crear carpeta:
 
-Crea una carpeta .streamlit en la raíz.
+Copiar código
+.streamlit/
+Crear archivo:
 
-Crea un archivo secrets.toml dentro.
+bash
+Copiar código
+.streamlit/secrets.toml
+Contenido:
 
-Añade: GOOGLE_API_KEY = "tu_clave_de_google_ai_studio"
-
-Ejecutar:
-
-Bash
-
+toml
+Copiar código
+GOOGLE_API_KEY = "tu_clave_de_google_ai_studio"
+5️⃣ Ejecutar la app
+bash
+Copiar código
 streamlit run app.py
 6. Ejemplos de Uso
-Caso A: La Foto "Lavada" de 1982
-Laura sube una foto de un cumpleaños que se ve grisácea por el paso del tiempo.
+📸 Caso A — Foto "Lavada" de 1982
+Laura sube una foto grisácea y sin contraste.
+Activa Ecualización de Histograma.
 
-Acción: Activa la casilla "Ecualización de Histograma".
+➡️ La imagen recupera negros profundos y contraste.
 
-Resultado: La foto recupera instantáneamente los negros profundos y el contraste.
+Aquí puedes colocar tu captura de la opción “Mejora Automática” activada.
 
-Captura:
+🛠 Caso B — Ajuste Fino + Validación IA
+Ajusta Nitidez (1.8) y Contraste (1.2).
+Presiona "Analizar cambios con IA".
 
-[INSERTA AQUÍ TU CAPTURA DE LA OPCIÓN "MEJORA AUTOMÁTICA" ACTIVADA]
+Gemini responde:
 
-Caso B: Ajuste Fino y Validación
-Laura ajusta manualmente una foto que estaba un poco borrosa.
+“La nitidez ha mejorado los bordes de los rostros. El contraste es adecuado sin perder detalles en sombras.”
 
-Acción: Sube Nitidez a 1.8 y Contraste a 1.2. Presiona "Analizar cambios con IA".
-
-Resultado Gemini: "La nitidez ha mejorado significativamente los bordes de los rostros. El contraste es adecuado sin perder detalles en las sombras."
-
-Captura:
-
-[INSERTA AQUÍ TU CAPTURA DE LOS SLIDERS Y EL MENSAJE DE LA IA]
+Aquí puedes insertar la captura con sliders + mensaje IA.
 
 7. Decisiones de Diseño (Human-AI Interaction)
-Para satisfacer a nuestro user persona (Laura), tomamos decisiones específicas de diseño HAI:
+Para que Laura tenga una experiencia fluida, se tomaron decisiones clave:
 
-Transparencia del Modelo: No ocultamos la IA. El botón dice explícitamente "Analizar con IA" y se activa bajo demanda. Esto respeta el tiempo y los tokens de la usuaria, evitando llamadas innecesarias mientras ella solo está "jugando" con los sliders.
+✔ Transparencia
+La IA no es automática.
+El botón dice “Analizar con IA” para que el usuario decida cuándo usarla.
 
-Reversibilidad: La implementación de "Mejora Automática" como un checkbox (casilla) en lugar de un botón destructivo permite a Laura ver el "antes y después" instantáneamente simplemente marcando y desmarcando, dándole sensación de control total.
+✔ Reversibilidad
+Las funciones no destruyen la imagen.
+Los cambios pueden activarse o desactivarse con checkboxes.
 
-Feedback Semántico: En lugar de mostrar métricas técnicas (ej: "SNR: 14db"), le pedimos a Gemini que responda en lenguaje natural ("Se ve mejor", "Está muy oscura"), alineándose con el conocimiento no-técnico de Laura.
+✔ Lenguaje Natural
+Gemini describe mejoras de forma comprensible:
+"Se ve más nítida", "está muy oscura", etc.
+
+Nada de métricas técnicas confusas.
 
 8. Limitaciones Conocidas
-Dependencia de la Nube: La función de análisis requiere conexión a internet para consultar la API de Google.
+La función de análisis con IA requiere conexión a Internet.
 
-Tamaño de Archivo: Imágenes superiores a 10MB pueden experimentar lentitud en la carga inicial debido a las limitaciones de Streamlit Cloud.
+La calidad del escaneo inicial limita los resultados finales.
 
-Formatos RAW: La aplicación está optimizada para JPG y PNG comprimidos (escaneos estándar), no soporta revelado de archivos RAW de cámaras profesionales.
+No se recomienda para restauraciones profesionales o muy avanzadas.
