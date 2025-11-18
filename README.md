@@ -110,7 +110,7 @@ Crear el archivo:
 
 Agregar:
 
-GOOGLE_API_KEY = "tu_clave_de_google_ai_studio"
+GOOGLE_API_KEY = "AIzaSyCvzAhZpP6LGl-TLh9Utp_BNiElZL0yJTU"
 
 5️⃣ Ejecutar la aplicación
 streamlit run app.py
