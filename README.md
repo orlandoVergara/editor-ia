@@ -1,4 +1,4 @@
-1. Descripción del Problema y Caso de Uso
+#1. Descripción del Problema y Caso de Uso
 El Desafío
 La digitalización de archivos familiares presenta un problema común: el paso del tiempo degrada las fotografías físicas (pérdida de contraste, colores apagados, "neblina" blanca), y los escáneres caseros a menudo no logran capturar la vivacidad original.
 
