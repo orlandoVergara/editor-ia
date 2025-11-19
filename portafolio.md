@@ -37,7 +37,7 @@ El usuario ("Laura") puede ajustar parámetros de intensidad y filtros de realce
 !![[Captura de Edición Manual]](assets/edicion_manual.png)
 _Interfaz de usuario mostrando sliders de Brillo, Contraste y Nitidez._
 
-### 2. Restauración Automática (Histogramas)
+### 2. Restauración Automática 
 
 Implementación de `ImageOps.equalize` para corregir fotos con mala iluminación o "efecto niebla" en un solo clic.
 
@@ -95,3 +95,4 @@ Este proyecto demuestra la adquisición de las siguientes competencias:
 
 **Orlando Vergara**
 _Estudiante del instituto IFTS_
+
