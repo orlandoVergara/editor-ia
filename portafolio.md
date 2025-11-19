@@ -1,4 +1,4 @@
-# 🚀 RetroLens AI: Restauración de Memorias con Inteligencia Artificial
+# 🚀Track 2: Restauración y Enhancement con Inteligencia Artificial
 
 ![Python](https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)
@@ -95,4 +95,5 @@ Este proyecto demuestra la adquisición de las siguientes competencias:
 
 **Orlando Vergara**
 _Estudiante del instituto IFTS_
+
 
