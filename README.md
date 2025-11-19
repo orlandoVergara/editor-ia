@@ -110,7 +110,7 @@ Crear el archivo:
 
 Agregar:
 
-GOOGLE_API_KEY = "AIzaSyCvzAhZpP6LGl-TLh9Utp_BNiElZL0yJTU"
+GOOGLE_API_KEY = "aca tu clave api"
 
 5️⃣ Ejecutar la aplicación
 streamlit run app.py
